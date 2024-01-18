@@ -11,10 +11,13 @@
     <div class="calculator">
       <div class="screen">
         <div class="screenContent">
+          <div v-if="this.operation != ''">
+            {{ this.numero01 }} {{ this.operation }} {{ this.numero02 }}
+          </div>
           <p class="calculation">
             <span id="calculationText"></span>
           </p>
-          <p class="result">
+          <p class="result">       
             <span id="resultText">{{ result }}</span>
           </p>
         </div>
@@ -100,62 +103,65 @@
           this.result = 0
           this.numero01 = 0
           this.numero02 = 0
+          this.operation = ''
         },
         operation_Adi(){
           if(this.result != 0){
             this.numero01 = parseInt(this.result);
-            this.operation = 'adi'
+            this.operation = '+'
           }
-          
-          console.log(this.numero01)
           this.result = 0;
+          this.numero02 = 0;
             
         },
         operation_Sub(){
           if(this.result != 0){
             this.numero01 = parseInt(this.result);
-            this.operation = 'sub'
+            this.operation = '-'
           }
             this.result = 0;
+            this.numero02 = 0;
           },
         operationMult(){
           if(this.result != 0){
             this.numero01 = parseInt(this.result);
-            this.operation = 'mult'
+            this.operation = 'X'
           }
             this.result = 0;
+            this.numero02 = 0;
           },
         operationDiv(){
           if(this.result != 0){
             this.numero01 = parseInt(this.result);
-            this.operation = 'div'
+            this.operation = '/'
           } 
             this.result = 0;
+            this.numero02 = 0;
           },
         showResult(){
           switch(this.operation){
-            case "adi":
+            case "+":
             this.numero02 = parseInt(this.result);
             this.result = this.numero01 + this.numero02
             this.result = `${this.result}`
             console.log(this.numero02)
             break
 
-            case "sub":
+            case "-":
             this.numero02 = parseInt(this.result);
             this.result = this.numero01 - this.numero02
             this.result = `${this.result}`
             console.log(this.numero02)
             break
 
-            case "mult":
+            case "X":
             this.numero02 = parseInt(this.result);
             this.result = this.numero01 * this.numero02
             this.result = `${this.result}`
             console.log(this.numero02)
             break
 
-            case "div":
+            case "/":
             this.numero02 = parseInt(this.result);
             this.result = this.numero01 / this.numero02
             this.result = `${this.result}`
@@ -179,13 +185,16 @@
       overflow: hidden;
     }
     .screen {
-      height: 150px;
+      height: 200px;
       background: #001e34;
       margin: 20px 20px 20px 20px;
       margin: auto;
     }
     
     .screenContent {
+      font-size: 2.5rem;
+      padding-top: 1rem;
+      color: #fff;
       text-align: end;
       padding: 17px;
       font-size: 30px;

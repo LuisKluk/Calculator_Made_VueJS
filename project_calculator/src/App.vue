@@ -1,24 +1,24 @@
 <template>
-Bom dia
+   <h1 style="text-align: center; background-color: aquamarine;">Calculadora</h1>
+   <br>
+   <Calculadora_project></Calculadora_project>
+
+
 </template>
 
 <script>
+import Calculadora_project from './components/Calculadora_project.vue'
 
 export default {
   name: 'App',
   components: {
+    Calculadora_project
     
-  }
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+ 
 </style>

@@ -11,15 +11,14 @@
     <div class="calculator">
       <div class="screen">
         <div class="screenContent">
-          <div v-if="this.operation != ''">
-            {{ this.numero01 }} {{ this.operation }} {{ this.numero02 }}
-          </div>
-          <p class="calculation">
-            <span id="calculationText"></span>
-          </p>
-          <p class="result">       
+          <div>
+            <div>
+              <div class="result" v-show="this.operation">{{ this.numero01 }} {{ this.operation }} {{ this.numero02 }}</div>
+            </div>
+            <div class="result">       
             <span id="resultText">{{ result }}</span>
-          </p>
+            </div>
+          </div>
         </div>
       </div>
       <table>
@@ -185,7 +184,7 @@
       overflow: hidden;
     }
     .screen {
-      height: 200px;
+      height: 140px;
       background: #001e34;
       margin: 20px 20px 20px 20px;
       margin: auto;
